@@ -32,36 +32,19 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-950 text-white relative overflow-hidden">
-      {/* Background effects */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-pink-500/3 rounded-full blur-[150px]" />
-      </div>
-
-      <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white">
+      <div className="max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         {/* Header */}
-        <header className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-medium mb-6 tracking-wide">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
-            </span>
-            Powered by AI
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <header className="text-center mb-16">
+          <div className="mb-8">
+            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 mb-4">
               Drug Interaction
-            </span>
-            <br />
-            <span className="text-white">Analyzer</span>
-          </h1>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Enter your medications in plain text and discover potential
-            drug-drug interactions instantly with AI-powered analysis.
-          </p>
+              <span className="block text-blue-600">Analyzer</span>
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Comprehensive drug interaction analysis with AI-powered insights. Enter your medications and get instant information about potential interactions.
+            </p>
+          </div>
         </header>
 
         {/* Input */}
@@ -71,14 +54,18 @@ export default function Home() {
 
         {/* Error */}
         {error && (
-          <div className="mb-8 rounded-2xl bg-red-500/10 border border-red-500/30 p-5">
-            <div className="flex items-start gap-3">
-              <span className="text-red-400 text-xl">⚠️</span>
+          <div className="mb-8 rounded-lg bg-red-50 border border-red-200 p-6 animate-scale-in">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
               <div>
-                <h3 className="text-red-400 font-semibold text-sm">
+                <h3 className="text-red-900 font-semibold">
                   Analysis Failed
                 </h3>
-                <p className="text-red-300/80 text-sm mt-1">{error}</p>
+                <p className="text-red-700 text-sm mt-1">{error}</p>
               </div>
             </div>
           </div>
@@ -90,19 +77,19 @@ export default function Home() {
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="rounded-2xl bg-gray-900/60 border border-white/5 p-6 animate-pulse"
+                className="rounded-lg bg-white border border-gray-200 p-6 animate-pulse"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-gray-800" />
-                  <div className="space-y-2">
-                    <div className="h-4 w-48 bg-gray-800 rounded" />
-                    <div className="h-3 w-24 bg-gray-800 rounded" />
+                  <div className="w-12 h-12 rounded-lg bg-gray-200" />
+                  <div className="space-y-2 flex-1">
+                    <div className="h-4 w-48 bg-gray-200 rounded" />
+                    <div className="h-3 w-24 bg-gray-200 rounded" />
                   </div>
                 </div>
-                <div className="h-16 bg-gray-800/60 rounded-xl mb-4" />
+                <div className="h-16 bg-gray-200 rounded-lg mb-4" />
                 <div className="space-y-2">
-                  <div className="h-3 w-full bg-gray-800 rounded" />
-                  <div className="h-3 w-3/4 bg-gray-800 rounded" />
+                  <div className="h-3 w-full bg-gray-200 rounded" />
+                  <div className="h-3 w-3/4 bg-gray-200 rounded" />
                 </div>
               </div>
             ))}
@@ -111,34 +98,33 @@ export default function Home() {
 
         {/* Results */}
         {data && !loading && (
-          <div className="space-y-8 animate-in fade-in duration-500">
+          <div className="space-y-8 animate-in">
             {/* Detected drugs */}
-            <div className="rounded-2xl bg-gray-900/60 backdrop-blur-lg border border-white/10 p-6">
-              <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                Detected Drugs
+            <div className="rounded-lg bg-white border border-gray-200 p-6 shadow-sm">
+              <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4">
+                Detected Medications
               </h2>
               <div className="flex flex-wrap gap-2">
                 {data.normalized_drugs.map((drug, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center px-4 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm font-medium capitalize"
+                    className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium capitalize border border-blue-200"
                   >
-                    💊 {drug}
+                    {drug}
                   </span>
                 ))}
               </div>
 
               {data.pairs.length > 0 && (
-                <p className="text-xs text-gray-500 mt-4">
-                  Analyzing {data.pairs.length} drug pair
-                  {data.pairs.length > 1 ? "s" : ""}
+                <p className="text-xs text-gray-600 mt-4">
+                  {data.pairs.length} interaction{data.pairs.length > 1 ? "s" : ""} found
                 </p>
               )}
             </div>
 
             {/* Interaction cards */}
             <div>
-              <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+              <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4">
                 Interaction Results
               </h2>
               <div className="space-y-4">
