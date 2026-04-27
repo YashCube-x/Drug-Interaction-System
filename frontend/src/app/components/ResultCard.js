@@ -36,7 +36,8 @@ const SEVERITY_STYLES = {
 };
 
 export default function ResultCard({ result, index }) {
-  const sev = SEVERITY_STYLES[result.severity?.toLowerCase()] || SEVERITY_STYLES.unknown;
+  const sev =
+    SEVERITY_STYLES[result.severity?.toLowerCase()] || SEVERITY_STYLES.unknown;
 
   return (
     <div
@@ -47,7 +48,9 @@ export default function ResultCard({ result, index }) {
         {/* Header row */}
         <div className="flex items-start justify-between mb-5">
           <div className="flex items-center gap-4 flex-1">
-            <div className={`flex items-center justify-center w-12 h-12 rounded-lg flex-shrink-0 font-lg ${sev.bg} ${sev.accent}`}>
+            <div
+              className={`flex items-center justify-center w-12 h-12 rounded-lg flex-shrink-0 font-lg ${sev.bg} ${sev.accent}`}
+            >
               {sev.icon}
             </div>
             <div>
@@ -56,12 +59,16 @@ export default function ResultCard({ result, index }) {
                 <span className="text-gray-400 mx-2">+</span>
                 {result.pair[1]}
               </h3>
-              <p className="text-xs text-gray-600 mt-1 capitalize">{result.type}</p>
+              <p className="text-xs text-gray-600 mt-1 capitalize">
+                {result.type}
+              </p>
             </div>
           </div>
 
           <div className="flex flex-col items-end gap-2 flex-shrink-0">
-            <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold ${sev.badge}`}>
+            <span
+              className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold ${sev.badge}`}
+            >
               {sev.label}
             </span>
             <span
@@ -97,7 +104,9 @@ export default function ResultCard({ result, index }) {
         {result.disclaimer && (
           <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 mb-4">
             <div className="flex gap-3">
-              <span className="text-amber-600 text-sm shrink-0 font-bold">⚠️</span>
+              <span className="text-amber-600 text-sm shrink-0 font-bold">
+                ⚠️
+              </span>
               <p className="text-xs text-amber-900 leading-relaxed">
                 {result.disclaimer}
               </p>
@@ -108,7 +117,12 @@ export default function ResultCard({ result, index }) {
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-200 text-xs text-gray-600">
           <span>
-            Source: <strong className="text-gray-900">{result.source === "database" ? "Medical Database" : "AI Generated"}</strong>
+            Source:{" "}
+            <strong className="text-gray-900">
+              {result.source === "database"
+                ? "Medical Database"
+                : "AI Generated"}
+            </strong>
           </span>
         </div>
       </div>

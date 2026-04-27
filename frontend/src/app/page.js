@@ -42,7 +42,9 @@ export default function Home() {
               <span className="block text-blue-600">Analyzer</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Comprehensive drug interaction analysis with AI-powered insights. Enter your medications and get instant information about potential interactions.
+              Comprehensive drug interaction analysis with AI-powered insights.
+              Enter your medications and get instant information about potential
+              interactions.
             </p>
           </div>
         </header>
@@ -57,14 +59,22 @@ export default function Home() {
           <div className="mb-8 rounded-lg bg-red-50 border border-red-200 p-6 animate-scale-in">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
-                <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="h-6 w-6 text-red-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
               <div>
-                <h3 className="text-red-900 font-semibold">
-                  Analysis Failed
-                </h3>
+                <h3 className="text-red-900 font-semibold">Analysis Failed</h3>
                 <p className="text-red-700 text-sm mt-1">{error}</p>
               </div>
             </div>
@@ -117,7 +127,8 @@ export default function Home() {
 
               {data.pairs.length > 0 && (
                 <p className="text-xs text-gray-600 mt-4">
-                  {data.pairs.length} interaction{data.pairs.length > 1 ? "s" : ""} found
+                  {data.pairs.length} interaction
+                  {data.pairs.length > 1 ? "s" : ""} found
                 </p>
               )}
             </div>

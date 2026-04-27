@@ -64,7 +64,6 @@ export default function InputBox({ onAnalyze, isLoading }) {
             </button>
           </div>
         </div>
-      </div>
     </form>
   );
 }
